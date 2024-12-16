@@ -1,35 +1,38 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-
-function App() {
-  const [count, setCount] = useState(0)
-
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Editarticle from "./components/articles/EditArticle";
+import Insertarticle from "./components/articles/InsertArticle";
+import Listarticles from "./components/articles/ListArticle";
+import Editcategories from "./components/categories/EditCategories";
+import Insertcategories from "./components/categories/InsertCategories";
+import Listcategories from "./components/categories/ListCategories";
+import Editscategories from "./components/scategories/EditScategories";
+import Insertscategories from "./components/scategories/InsertScategories";
+import Listscategories from "./components/scategories/ListScategories";
+import Viewarticle from "./components/articles/ViewArticle";
+import Viewcategories from "./components/categories/ViewCategories";
+import Viewscategories from "./components/scategories/ViewScategories";
+import Menu from "./components/Menu";
+const App = () => {
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
-
-export default App
+    <div>
+      <Router>
+        <Menu />
+        <Routes>
+          <Route path="/articles" element={<Listarticles />} />
+          <Route path="/articles/add" element={<Insertarticle />} />
+          <Route path="/article/edit/:id" element={<Editarticle />} />
+          <Route path="/article/view/:id" element={<Viewarticle />} />
+          <Route path="/categories" element={<Listcategories />} />
+          <Route path="/categories/add" element={<Insertcategories />} />
+          <Route path="/categories/edit/:id" element={<Editcategories />} />
+          <Route path="/categories/view/:id" element={<Viewcategories />} />
+          <Route path="/scategories" element={<Listscategories />} />
+          <Route path="/scategories/add" element={<Insertscategories />} />
+          <Route path="/scategories/edit/:id" element={<Editscategories />} />
+          <Route path="/scategories/view/:id" element={<Viewscategories />} />
+        </Routes>
+      </Router>
+    </div>
+  );
+};
+export default App;
