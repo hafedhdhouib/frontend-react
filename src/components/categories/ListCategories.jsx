@@ -7,7 +7,7 @@ const Listcategories = () => {
   const [categories, setCategories] = useState([]);
   const getcategories = async () => {
     await axios
-      .get("https://backend-laravel-umber.vercel.app/api/api/categories")
+      .get("https://backend-laravel-tau.vercel.app/api/api/categories")
       .then((res) => {
         setCategories(res.data);
       })

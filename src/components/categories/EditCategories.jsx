@@ -8,7 +8,7 @@ const EditCategories = () => {
   const [categorie, setCategorie] = useState({});
   const loadcategorie = async () => {
     axios
-      .get(`https://backend-laravel-umber.vercel.app/api/api/categories/${id}`)
+      .get(`https://backend-laravel-tau.vercel.app/api/api/categories/${id}`)
       .then((response) => {
         setCategorie(response.data);
       })
@@ -24,7 +24,7 @@ const EditCategories = () => {
     //faire le put dans la BD
     axios
       .put(
-        `https://backend-laravel-umber.vercel.app/api/api/categories/${id}`,
+        `https://backend-laravel-tau.vercel.app/api/api/categories/${id}`,
         categorie
       )
       .then((res) => {

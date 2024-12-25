@@ -12,11 +12,13 @@ const ViewCategories = ({ categories, setCategories }) => {
     if (!window.confirm("Are you sure you want to delete")) {
       return;
     }
+    console.log(id);
+
     axios
-      .delete(
-        `https://backend-laravel-umber.vercel.app/api/api/categories/${id}`
-      )
-      .then(() => {
+      .delete(`https://backend-laravel-tau.vercel.app/api/api/categories/${id}`)
+      .then((e) => {
+        console.log(e);
+
         console.log("successfully deleted!");
         setCategories(categories.filter((cat) => cat.id !== id));
       })

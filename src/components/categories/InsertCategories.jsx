@@ -11,10 +11,12 @@ const InsertCategories = () => {
     //faire le add dans la BD
     await axios
       .post(
-        "https://backend-laravel-umber.vercel.app/api/api/categories",
+        "https://backend-laravel-tau.vercel.app/api/api/categories",
         categorie
       )
       .then((res) => {
+        console.log(res);
+
         navigate("/categories");
       })
       .catch((error) => {
