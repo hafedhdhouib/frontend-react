@@ -1,5 +1,5 @@
 import React from "react";
-
+import { useShoppingCart } from "use-shopping-cart";
 import {
   Nav,
   Navbar,
@@ -11,10 +11,21 @@ import {
 
 import { Link } from "react-router-dom";
 const Menu = () => {
+  const { cartCount } = useShoppingCart();
   return (
     <Navbar bg="primary" variant="dark">
       <Container>
-        <Navbar.Brand>Gestion Commerciale</Navbar.Brand>
+        <Navbar.Brand>
+          Gestion Commerciale
+          <Link to="/cart">
+            {" "}
+            <i
+              className="fa-solid fa-cart-shopping"
+              style={{ fontSize: "28px", color: "red" }}
+            ></i>
+            <span className="badge badge-secondary">{cartCount}</span>
+          </Link>
+        </Navbar.Brand>
         <Nav className="me-auto">
           <Nav.Link as={Link} to="/categories">
             Catégories

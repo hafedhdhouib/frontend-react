@@ -12,26 +12,33 @@ import Viewarticle from "./components/articles/ViewArticle";
 import Viewcategories from "./components/categories/ViewCategories";
 import Viewscategories from "./components/scategories/ViewScategories";
 import Menu from "./components/Menu";
+import Listarticlescard from "./components/client/Listarticlescard";
+import { CartProvider } from "use-shopping-cart";
+import Cart from "./components/client/shopping/Card";
 const App = () => {
   return (
     <div>
-      <Router>
-        <Menu />
-        <Routes>
-          <Route path="/articles" element={<Listarticles />} />
-          <Route path="/articles/add" element={<Insertarticle />} />
-          <Route path="/article/edit/:id" element={<Editarticle />} />
-          <Route path="/article/view/:id" element={<Viewarticle />} />
-          <Route path="/categories" element={<Listcategories />} />
-          <Route path="/categories/add" element={<Insertcategories />} />
-          <Route path="/categories/edit/:id" element={<Editcategories />} />
-          <Route path="/categories/view/:id" element={<Viewcategories />} />
-          <Route path="/scategories" element={<Listscategories />} />
-          <Route path="/scategories/add" element={<Insertscategories />} />
-          <Route path="/scategories/edit/:id" element={<Editscategories />} />
-          <Route path="/scategories/view/:id" element={<Viewscategories />} />
-        </Routes>
-      </Router>
+      <CartProvider>
+        <Router>
+          <Menu />
+          <Routes>
+            <Route path="/articles" element={<Listarticles />} />
+            <Route path="/articles/add" element={<Insertarticle />} />
+            <Route path="/article/edit/:id" element={<Editarticle />} />
+            <Route path="/article/view/:id" element={<Viewarticle />} />
+            <Route path="/categories" element={<Listcategories />} />
+            <Route path="/categories/add" element={<Insertcategories />} />
+            <Route path="/categories/edit/:id" element={<Editcategories />} />
+            <Route path="/categories/view/:id" element={<Viewcategories />} />
+            <Route path="/scategories" element={<Listscategories />} />
+            <Route path="/scategories/add" element={<Insertscategories />} />
+            <Route path="/scategories/edit/:id" element={<Editscategories />} />
+            <Route path="/scategories/view/:id" element={<Viewscategories />} />
+            <Route path="/articlescard" element={<Listarticlescard />} />
+            <Route path="/cart" element={<Cart />} />
+          </Routes>
+        </Router>
+      </CartProvider>
     </div>
   );
 };
